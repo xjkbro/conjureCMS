@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,6 @@ Route::get('/posts/slug/{slug}', [PostController::class, 'postBySlug']);
 Route::get('/user/{id}/posts', [PostController::class, 'postsByUser']);
 Route::get('/category/{id}/posts', [PostController::class, 'postsByCategory']);
 
-Route::get('/user/{id}', [Controller::class, 'getUserItems']);
+// Route::get('/user/{id}', [UserController::class, 'getUserItems']);
+Route::get('/user/{username}', [UserController::class, 'getUserItems']);
 

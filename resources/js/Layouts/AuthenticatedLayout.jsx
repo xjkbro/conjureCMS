@@ -30,6 +30,14 @@ export default function Authenticated({ user, header, children }) {
                                     >
                                         Dashboard
                                     </NavLink>
+                                    {user.role === "admin" && (
+                                        <NavLink
+                                            href={route("users")}
+                                            active={route().current("users")}
+                                        >
+                                            Users
+                                        </NavLink>
+                                    )}
                                     <NavLink
                                         href={route("categories")}
                                         active={route().current("categories")}
@@ -41,6 +49,18 @@ export default function Authenticated({ user, header, children }) {
                                         active={route().current("posts")}
                                     >
                                         Posts
+                                    </NavLink>
+                                    <NavLink
+                                    // href={route("posts")}
+                                    // active={route().current("posts")}
+                                    >
+                                        Products
+                                    </NavLink>
+                                    <NavLink
+                                    // href={route("posts")}
+                                    // active={route().current("posts")}
+                                    >
+                                        Orders
                                     </NavLink>
                                 </div>
                             </div>
