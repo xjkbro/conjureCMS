@@ -41,6 +41,14 @@ class PostController extends Controller
         $posts = Post::where('category_id', $id)->get();
         return response()->json($posts);
     }
+    public function updatePostViewCount($id)
+    {
+        $post = Post::find($id);
+        $post->views = $post->views + 1;
+        $post->save();
+        return response()->json($post);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -73,7 +81,7 @@ class PostController extends Controller
         }
         return back()->with([
             'type' => 'success',
-            'message' => 'Post was updated.'
+            'message' => 'Post was added.'
         ]);
 
 

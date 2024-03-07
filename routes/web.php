@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
@@ -53,6 +54,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/category/create', [CategoryController::class, 'store'])->name('category.store');
     Route::post('/category/{category}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
+    Route::post('/product/create', [ProductController::class, 'store'])->name('product.store');
+    Route::post('/product/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 
 });
 

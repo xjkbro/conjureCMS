@@ -51,8 +51,8 @@ export default function Authenticated({ user, header, children }) {
                                         Posts
                                     </NavLink>
                                     <NavLink
-                                    // href={route("posts")}
-                                    // active={route().current("posts")}
+                                        href={route("products")}
+                                        active={route().current("products")}
                                     >
                                         Products
                                     </NavLink>
@@ -61,6 +61,12 @@ export default function Authenticated({ user, header, children }) {
                                     // active={route().current("posts")}
                                     >
                                         Orders
+                                    </NavLink>
+                                    <NavLink
+                                    // href={route("posts")}
+                                    // active={route().current("posts")}
+                                    >
+                                        Customers
                                     </NavLink>
                                 </div>
                             </div>

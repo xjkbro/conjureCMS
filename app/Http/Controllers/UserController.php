@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -59,7 +60,8 @@ class UserController extends Controller
         }
         $posts = Post::where('user_id',$id)->get();
         $categories = Category::where('user_id',$id)->get();
-        return response()->json(['posts' => $posts, 'categories' => $categories]);
+        $products = Product::where('user_id',$id)->get();
+        return response()->json(['posts' => $posts, 'categories' => $categories, 'products' => $products]);
     }
 
     public function getUserItems($username){
@@ -71,7 +73,8 @@ class UserController extends Controller
         }
         $posts = Post::where('user_id',$user->id)->get();
         $categories = Category::where('user_id',$user->id)->get();
-        return response()->json(['posts' => $posts, 'categories' => $categories]);
+        $products = Product::where('user_id',$user->id)->get();
+        return response()->json(['posts' => $posts, 'categories' => $categories, 'products' => $products]);
     }
 
 }
